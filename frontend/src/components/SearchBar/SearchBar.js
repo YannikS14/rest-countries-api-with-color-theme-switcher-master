@@ -10,16 +10,14 @@ function SearchBar() {
         ></input>
       </div>
       <div className="filter">
-        <select>
-          <option value="" selected disabled hidden>
-            Filter by Region
-          </option>
-          <option>Africa</option>
-          <option>America</option>
-          <option>Asias</option>
-          <option>Europe</option>
-          <option>Oceania</option>
-        </select>
+        <button>Filter by Region</button>
+        <ul>
+          <li>Africa</li>
+          <li>America</li>
+          <li>Asias</li>
+          <li>Europe</li>
+          <li>Oceania</li>
+        </ul>
       </div>
     </div>
   );

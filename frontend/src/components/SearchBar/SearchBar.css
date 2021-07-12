@@ -5,18 +5,23 @@
 }
 
 input,
-select {
+button {
   border: none;
   box-shadow: 0px 0px 10px 2px hsl(0, 0%, 90%);
   font-family: inherit;
   font-weight: 600;
-  color: var(--light-mode-input);
+  color: var(--light-mode-text);
   border-radius: 5px;
+  font-size: 0.875rem;
 }
 
 input {
   padding: 1.25rem 1.25rem 1.25rem 4rem;
   min-width: 30vw;
+}
+
+input::placeholder {
+  color: var(--light-mode-input);
 }
 
 input:focus {
@@ -37,35 +42,37 @@ input:focus {
   top: 1rem;
 }
 
-select {
-  appearance: none;
+button {
   padding: 1.25rem 4.5rem 1.25rem 1.5rem;
-  font-weight: 800;
-}
-
-select:focus {
-  outline: none;
-}
-
-option {
-  padding: 2rem;
+  background-color: var(--dark-text-light-elements);
+  cursor: pointer;
 }
 
 .filter {
   position: relative;
 }
 
-.filter::after {
+button::after {
   font-family: 'Material Icons';
   font-size: 1.5em;
-  color: var(--light-mode-input);
+  color: var(--light-mode-text);
   content: '\e5cf';
   position: absolute;
   right: 1rem;
-  top: 1rem;
 }
 
-option {
-  background-color: lawngreen;
-  margin: 10px;
+ul {
+  /* display: none; */
+  position: absolute;
+  top: 50px;
+  padding: 0.75rem 7.5rem 0.75rem 1.5rem;
+  background-color: white;
+  list-style: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+li {
+  padding: 0.2rem 0;
+  font-size: 0.875rem;
 }
