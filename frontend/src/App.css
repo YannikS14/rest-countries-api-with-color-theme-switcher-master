@@ -1,0 +1,4 @@
+main {
+  background-color: var(--light-mode-bg);
+  min-height: 88vh;
+}
