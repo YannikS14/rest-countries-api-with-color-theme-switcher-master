@@ -7,9 +7,9 @@
   --dark-text-light-elements: hsl(0, 0%, 100%);
 }
 
-body {
+/* body {
   margin: 0;
   font-family: 'Nunito Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */

@@ -1,8 +1,8 @@
-import './SearchBar.css';
+import { StyledSearchBar } from './SearchBar.styled';
 
 function SearchBar() {
   return (
-    <div className="selection">
+    <StyledSearchBar>
       <div className="search">
         <input
           type="search"
@@ -19,7 +19,7 @@ function SearchBar() {
           <li>Oceania</li>
         </ul>
       </div>
-    </div>
+    </StyledSearchBar>
   );
 }
 

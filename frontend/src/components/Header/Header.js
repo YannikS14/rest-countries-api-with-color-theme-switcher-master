@@ -1,11 +1,11 @@
-import './Header.css';
+import { StyledHeader } from './Header.styled.js';
 
 function Header() {
   return (
-    <header>
+    <StyledHeader>
       <h1>Where in the world?</h1>
       <div className="modeToggle">Dark Mode</div>
-    </header>
+    </StyledHeader>
   );
 }
 
