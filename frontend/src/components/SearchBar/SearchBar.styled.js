@@ -57,6 +57,7 @@ export const StyledSearchBar = styled.section`
     border: none;
     font-weight: 600;
     font-size: 0.875rem;
+    text-align: left;
   }
 
   .filter {

@@ -30,14 +30,27 @@ function App() {
     getCountries();
   }, []);
 
+  const [region, setRegion] = useState('');
+  const filteredCountries = countries.filter((country) => {
+    if (region === 'America') return country.region === 'Americas';
+    return country.region === region;
+  });
+
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
         <Header toggleTheme={toggleTheme}></Header>
         <main>
-          <SearchBar></SearchBar>
-          <CountryList countries={countries}></CountryList>
+          <SearchBar
+            region={region}
+            setRegion={setRegion}
+          ></SearchBar>
+          <CountryList
+            countries={countries}
+            region={region}
+            filteredCountries={filteredCountries}
+          ></CountryList>
         </main>
       </>
     </ThemeProvider>
