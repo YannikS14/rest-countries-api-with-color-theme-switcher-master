@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
+  background: ${({ theme }) => theme.elements};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 12vh;
+  height: 5rem;
   padding: 0 5rem;
-  box-shadow: 0px 5px 20px 0px hsl(0, 0%, 90%);
+  box-shadow: 0px 5px 20px 0px ${({ theme }) => theme.shadow};
   position: relative;
   z-index: 1;
 
@@ -18,24 +19,24 @@ export const StyledHeader = styled.header`
     font-size: 1.125em;
     font-weight: 600;
     display: inline-flex;
+    line-height: 125%;
+    all: unset;
+    cursor: pointer;
   }
 
   .modeToggle::before {
     font-family: 'Material Icons';
-    font-size: 1.3em;
+    font-size: 125%;
+    vertical-align: -25%;
     content: 'dark_mode';
     margin-right: 0.5rem;
   }
 
   @media (max-width: 700px) {
     padding: 0 1rem;
-    align-items: flex-start;
-    padding-top: 1rem;
-    min-height: 8vh;
 
     h1 {
       font-size: 1.125em;
-      margin-top: 0;
     }
 
     .modeToggle {

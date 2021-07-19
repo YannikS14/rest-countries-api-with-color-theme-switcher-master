@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledCountry = styled.article`
-  background-color: var(--dark-text-light-elements);
+  background: ${({ theme }) => theme.elements};
   border-radius: 5px;
-  box-shadow: 0px 0px 10px 2px hsl(0, 0%, 90%);
+  box-shadow: 0px 0px 10px 2px ${({ theme }) => theme.shadow};
 
   .flag {
     width: 100%;

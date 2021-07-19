@@ -1,10 +1,12 @@
 import { StyledHeader } from './Header.styled.js';
 
-function Header() {
+function Header({ toggleTheme }) {
   return (
     <StyledHeader>
       <h1>Where in the world?</h1>
-      <div className="modeToggle">Dark Mode</div>
+      <button className="modeToggle" onClick={toggleTheme}>
+        Dark Mode
+      </button>
     </StyledHeader>
   );
 }

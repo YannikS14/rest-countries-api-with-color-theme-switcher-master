@@ -3,7 +3,7 @@ import { StyledCountry } from './Country.styled';
 function Country() {
   return (
     <StyledCountry>
-      <img className="flag" src="flag.png" />
+      <img className="flag" src="flag.png" alt="" />
       <div className="textContent">
         <h3>Germany</h3>
         <p className="population">

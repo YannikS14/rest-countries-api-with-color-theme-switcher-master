@@ -9,10 +9,10 @@ export const StyledSearchBar = styled.section`
   input,
   .filter {
     border: none;
-    box-shadow: 0px 0px 10px 2px hsl(0, 0%, 90%);
+    box-shadow: 0px 0px 10px 2px ${({ theme }) => theme.shadow};
     font-family: inherit;
     font-weight: 600;
-    color: var(--light-mode-text);
+    background: ${({ theme }) => theme.elements};
     border-radius: 5px;
     font-size: 0.875rem;
   }
@@ -20,10 +20,11 @@ export const StyledSearchBar = styled.section`
   input {
     padding: 1.25rem 1.25rem 1.25rem 4rem;
     width: 100%;
+    color: ${({ theme }) => theme.text};
   }
 
   input::placeholder {
-    color: var(--light-mode-input);
+    color: ${({ theme }) => theme.input};
   }
 
   input:focus {
@@ -40,7 +41,7 @@ export const StyledSearchBar = styled.section`
   .search::before {
     font-family: 'Material Icons';
     font-size: 1.5em;
-    color: var(--light-mode-input);
+    color: ${({ theme }) => theme.input};
     content: 'search';
     position: absolute;
     left: 1.5rem;
@@ -50,8 +51,9 @@ export const StyledSearchBar = styled.section`
   button {
     cursor: pointer;
     width: 100%;
-    background-color: inherit;
     font-family: inherit;
+    background: inherit;
+    color: inherit;
     border: none;
     font-weight: 600;
     font-size: 0.875rem;
@@ -61,15 +63,14 @@ export const StyledSearchBar = styled.section`
     position: relative;
     flex: 0 1 17%;
     padding: 1.25rem 4.5rem 1.25rem 1.5rem;
-    background-color: var(--dark-text-light-elements);
     min-width: 13rem;
     max-width: 13rem;
+    color: ${({ theme }) => theme.input};
   }
 
   button::after {
     font-family: 'Material Icons';
     font-size: 1.5em;
-    color: var(--light-mode-text);
     content: 'expand_more';
     position: absolute;
     right: 1rem;
@@ -81,11 +82,12 @@ export const StyledSearchBar = styled.section`
     top: 50px;
     left: 0;
     padding: 0.75rem 4.5rem 0.75rem 1.5rem;
-    background-color: white;
+    background: ${({ theme }) => theme.elements};
     list-style: none;
     border-radius: 5px;
     font-weight: 600;
     width: 100%;
+    box-shadow: 0px 0px 10px 2px ${({ theme }) => theme.shadow};
   }
 
   li {
