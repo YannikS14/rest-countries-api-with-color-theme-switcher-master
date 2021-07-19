@@ -2,17 +2,12 @@ import { StyledCountryList } from './CountryList.styled';
 
 import Country from '../Country/Country';
 
-function CountryList() {
+function CountryList({ countries }) {
   return (
     <StyledCountryList>
-      <Country></Country>
-      <Country></Country>
-      <Country></Country>
-      <Country></Country>
-      <Country></Country>
-      <Country></Country>
-      <Country></Country>
-      <Country></Country>
+      {countries.map((el, index) => {
+        return <Country key={index} country={el}></Country>;
+      })}
     </StyledCountryList>
   );
 }

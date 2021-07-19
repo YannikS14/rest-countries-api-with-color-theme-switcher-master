@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
+import axios from 'axios';
 import { lightTheme, darkTheme } from './theme';
 import { GlobalStyles } from './global';
 import Header from './components/Header/Header';
@@ -12,6 +13,23 @@ function App() {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
 
+  const [countries, setCountries] = useState([]);
+
+  const getCountries = async () => {
+    try {
+      const response = await axios.get(
+        'https://restcountries.eu/rest/v2/all',
+      );
+      setCountries(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getCountries();
+  }, []);
+
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
@@ -19,7 +37,7 @@ function App() {
         <Header toggleTheme={toggleTheme}></Header>
         <main>
           <SearchBar></SearchBar>
-          <CountryList></CountryList>
+          <CountryList countries={countries}></CountryList>
         </main>
       </>
     </ThemeProvider>

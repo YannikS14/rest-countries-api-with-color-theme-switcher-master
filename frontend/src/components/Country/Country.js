@@ -1,19 +1,22 @@
 import { StyledCountry } from './Country.styled';
 
-function Country() {
+function Country({ country }) {
   return (
     <StyledCountry>
-      <img className="flag" src="flag.png" alt="" />
+      <img className="flag" src={country.flag} alt="" />
       <div className="textContent">
-        <h3>Germany</h3>
+        <h3>{country.name}</h3>
         <p className="population">
-          <span>Population: </span>81,770,900
+          <span>Population: </span>
+          {country.population.toLocaleString('de')}
         </p>
         <p className="region">
-          <span>Region: </span> Europe
+          <span>Region: </span>
+          {country.region}
         </p>
         <p className="capital">
-          <span>Capital: </span> Berlin
+          <span>Capital: </span>
+          {country.capital}
         </p>
       </div>
     </StyledCountry>

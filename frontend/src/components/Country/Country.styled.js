@@ -7,6 +7,9 @@ export const StyledCountry = styled.article`
 
   .flag {
     width: 100%;
+    height: 45%;
+    object-fit: fill;
+    border-radius: 5px 5px 0 0;
   }
 
   .textContent {
