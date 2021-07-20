@@ -14,8 +14,12 @@ export const StyledCountry = styled.article`
   }
 
   .textContent {
-    padding: 0 1.5rem;
-    margin-bottom: 3rem;
+    padding: 0 1.5rem 3rem 1.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 
   p {
