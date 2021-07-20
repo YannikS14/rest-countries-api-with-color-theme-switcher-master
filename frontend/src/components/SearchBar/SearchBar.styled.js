@@ -49,7 +49,7 @@ export const StyledSearchBar = styled.section`
   }
 
   button {
-    cursor: pointer;
+    cursor: inherit;
     width: 100%;
     font-family: inherit;
     background: inherit;
@@ -67,6 +67,7 @@ export const StyledSearchBar = styled.section`
     min-width: 13rem;
     max-width: 13rem;
     color: ${({ theme }) => theme.input};
+    cursor: pointer;
   }
 
   button::after {

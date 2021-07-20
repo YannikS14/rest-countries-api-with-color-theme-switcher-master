@@ -16,15 +16,4 @@ export const GlobalStyles = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         transition: all 0.25s linear;
     }
-    
-    main {
-        padding: 3rem 0;
-        transition: all 0.25s linear;
-    }
-
-    @media (max-width: 600px) {
-        main {
-            padding: 2rem 0;
-        }
-    }
 `;

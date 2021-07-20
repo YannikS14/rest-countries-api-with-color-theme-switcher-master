@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { StyledSearchBar } from './SearchBar.styled';
 
-function SearchBar({ region, setRegion }) {
+function SearchBar({ region, setRegion, input, handleInputChange }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleFilterMenuOpen = () => setIsOpen(!isOpen);
 
@@ -16,6 +16,8 @@ function SearchBar({ region, setRegion }) {
         <input
           type="search"
           placeholder="Search for a country..."
+          value={input}
+          onChange={(e) => handleInputChange(e.target.value)}
         ></input>
       </div>
       <div className="filter" onClick={toggleFilterMenuOpen}>

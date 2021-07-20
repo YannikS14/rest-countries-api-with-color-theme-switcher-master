@@ -4,8 +4,7 @@ import axios from 'axios';
 import { lightTheme, darkTheme } from './theme';
 import { GlobalStyles } from './global';
 import Header from './components/Header/Header';
-import SearchBar from './components/SearchBar/SearchBar';
-import CountryList from './components/CountryList/CountryList';
+import MainPage from './components/MainPage/MainPage';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -14,6 +13,7 @@ function App() {
   };
 
   const [countries, setCountries] = useState([]);
+  const [countriesDefault, setCountriesDefault] = useState([]);
 
   const getCountries = async () => {
     try {
@@ -21,6 +21,7 @@ function App() {
         'https://restcountries.eu/rest/v2/all',
       );
       setCountries(response.data);
+      setCountriesDefault(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -32,26 +33,32 @@ function App() {
 
   const [region, setRegion] = useState('');
   const filteredCountries = countries.filter((country) => {
+    if (!region) return country;
     if (region === 'America') return country.region === 'Americas';
     return country.region === region;
   });
+
+  const [input, setInput] = useState('');
+  const updateInput = (input) => {
+    const filtered = countriesDefault.filter((country) => {
+      return country.name.toLowerCase().includes(input.toLowerCase());
+    });
+    setInput(input);
+    setCountries(filtered);
+  };
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
         <Header toggleTheme={toggleTheme}></Header>
-        <main>
-          <SearchBar
-            region={region}
-            setRegion={setRegion}
-          ></SearchBar>
-          <CountryList
-            countries={countries}
-            region={region}
-            filteredCountries={filteredCountries}
-          ></CountryList>
-        </main>
+        <MainPage
+          region={region}
+          setRegion={setRegion}
+          input={input}
+          handleInputChange={updateInput}
+          filteredCountries={filteredCountries}
+        />
       </>
     </ThemeProvider>
   );

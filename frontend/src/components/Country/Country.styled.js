@@ -4,6 +4,7 @@ export const StyledCountry = styled.article`
   background: ${({ theme }) => theme.elements};
   border-radius: 5px;
   box-shadow: 0px 0px 10px 2px ${({ theme }) => theme.shadow};
+  max-width: 260px;
 
   .flag {
     width: 100%;
@@ -24,5 +25,9 @@ export const StyledCountry = styled.article`
 
   p span {
     font-weight: 800;
+  }
+
+  @media (max-width: 700px) {
+    max-width: 100%;
   }
 `;
