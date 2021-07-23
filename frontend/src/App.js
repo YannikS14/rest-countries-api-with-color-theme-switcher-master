@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom';
