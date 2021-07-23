@@ -16,4 +16,8 @@ export const GlobalStyles = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         transition: all 0.25s linear;
     }
+
+    a {
+        text-decoration: none;
+    }
 `;
