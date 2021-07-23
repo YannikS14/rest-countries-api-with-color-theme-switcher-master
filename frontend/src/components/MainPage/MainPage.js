@@ -3,12 +3,15 @@ import axios from 'axios';
 import SearchBar from '../SearchBar/SearchBar';
 import CountryList from '../CountryList/CountryList';
 import { StyledMainPage } from './MainPage.styled';
+import Loading from '../Loading/Loading';
 
 function MainPage() {
   const [countries, setCountries] = useState([]);
   const [countriesDefault, setCountriesDefault] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getCountries = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(
         'https://restcountries.eu/rest/v2/all',
@@ -18,6 +21,7 @@ function MainPage() {
     } catch (error) {
       console.error(error);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -42,15 +46,20 @@ function MainPage() {
 
   return (
     <StyledMainPage>
-      <SearchBar
-        region={region}
-        setRegion={setRegion}
-        input={input}
-        handleInputChange={updateInput}
-      ></SearchBar>
-      <CountryList
-        filteredCountries={filteredCountries}
-      ></CountryList>
+      {loading && <Loading />}
+      {countries && (
+        <>
+          <SearchBar
+            region={region}
+            setRegion={setRegion}
+            input={input}
+            handleInputChange={updateInput}
+          ></SearchBar>
+          <CountryList
+            filteredCountries={filteredCountries}
+          ></CountryList>
+        </>
+      )}
     </StyledMainPage>
   );
 }

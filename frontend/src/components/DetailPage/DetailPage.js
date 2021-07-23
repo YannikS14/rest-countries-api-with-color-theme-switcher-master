@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { StyledDetailPage } from './DetailPage.styled';
 import Button from '../Button/Button';
 import CountryDetails from '../CountryDetails/CountryDetails';
+import Loading from '../Loading/Loading';
 
 function DetailPage({ match }) {
   const {
@@ -34,17 +35,16 @@ function DetailPage({ match }) {
 
   return (
     <StyledDetailPage>
-      <Link to={`/`}>
-        <Button text="Back"></Button>
-      </Link>
-      {loading && (
-        <div>
-          Loading country details for country ID:{' '}
-          <strong>{countryId}</strong>
-        </div>
-      )}
+      {loading && <Loading />}
       {error && <div>Some error occured while fetching data</div>}
-      {country && <CountryDetails country={country} />}
+      {country && (
+        <>
+          <Link to={`/`}>
+            <Button text="Back"></Button>
+          </Link>{' '}
+          <CountryDetails country={country} />
+        </>
+      )}
     </StyledDetailPage>
   );
 }
